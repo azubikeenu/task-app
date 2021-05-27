@@ -1,11 +1,11 @@
 import * as tasksview from './view/tasksview.js'
 import Task from './model/Task.js'
 import { myList as tasks } from './model/List.js'
+
 export const run = ( ui ) => {
     // add Task to task list
-    ui.addTask( ( e ) => {
+    ui.addTask( e => {
         e.preventDefault()
-
         const input = ui.getTaskInput()
         const task = new Task( input );
 
@@ -18,12 +18,13 @@ export const run = ( ui ) => {
         tasksview.clearTasks()
         //display in the UI
         tasksview.renderTasks( tasks.getTasks() )
-        // clear Input field and setFocus to input
+        // clear Input field and setFocus
         tasksview.clearTaskInput()
 
     } )
 
-    ui.deleteTask( ( e ) => {
+    // delete task
+    ui.deleteTask( e => {
         if ( e.target.matches( '.delete-item *' ) ) {
             const [, id] = e.target.parentElement.href.split( '#' )
             // remove from the list
@@ -32,6 +33,15 @@ export const run = ( ui ) => {
             tasksview.removeTask( id )
 
         }
+    } )
+
+    // filter tasks
+    ui.filterTasks( () => {
+        const filterString = ui.getFilterString();
+        // console.log( filterString )
+        tasksview.filterTasks( filterString )
+
+
     } )
 
 

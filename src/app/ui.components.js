@@ -6,12 +6,10 @@ export default class UI {
         this.clearBtn = document.querySelector( '.clear-tasks ' );
         this.filter = document.querySelector( '#filter' );
         this.taskInput = document.querySelector( '#task' );
-
     }
     getTaskInput () {
         return this.taskInput.value;
     }
-
     clearTasks ( func ) {
         this.clearBtn.addEventListener( 'click', func )
     }
@@ -23,5 +21,8 @@ export default class UI {
     }
     deleteTask ( func ) {
         this.taskList.addEventListener( 'click', func )
+    }
+    getFilterString () {
+        return this.filter.value;
     }
 }

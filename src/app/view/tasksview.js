@@ -29,3 +29,15 @@ export const clearTaskInput = () => {
     UIStrings.taskInput.value = "";
     UIStrings.taskInput.focus()
 }
+
+export const filterTasks = filterString => {
+    const text = filterString.toLowerCase();
+    const collectionItems = document.querySelectorAll( ".collection-item" )
+    collectionItems.forEach( task => {
+        if ( task.innerText.toLowerCase().indexOf( text ) === -1 ) {
+            task.style.display = 'none'
+        } else {
+            task.style.display = 'block'
+        }
+    } )
+}
