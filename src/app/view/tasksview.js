@@ -4,10 +4,10 @@ export const renderTasks = tasks => {
     const html = tasks.map( ( { id, title } ) =>
         ` <li class="collection-item">
                         ${title}
-          <a href="#${id}" class="delete-item secondary-content">
-        <i class="fa fa-remove" data-value=${id}></i>
-                </a>
-                </li>`).join( ' ' )
+            <a href="#${id}" class="delete-item secondary-content">
+                <i class="fa fa-remove" data-value=${id}></i>
+            </a>
+          </li>`).join( ' ' )
     UIStrings.taskList.insertAdjacentHTML( 'afterbegin', html )
 }
 

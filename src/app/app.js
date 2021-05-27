@@ -4,24 +4,20 @@ import { myList as tasks } from './model/List.js'
 
 export const run = ( ui ) => {
 
-    // get tasks on load
-    const getTasks = () => {
+    const loadTasks = () => {
         //clear tasks
         tasksview.clearTasks()
         //display in the UI
         tasksview.renderTasks( tasks.getTasks() )
     }
-    document.addEventListener( "DOMContentLoaded", getTasks )
+    document.addEventListener( "DOMContentLoaded", loadTasks )
 
-    // add Task to task list
     ui.addTask( e => {
         e.preventDefault()
         const input = ui.getTaskInput()
         const task = new Task( input );
 
-        if ( input === '' ) {
-            return alert( 'Task field cannot be empty' )
-        }
+        if ( input === '' ) return alert( 'Task field cannot be empty' )
         // add to the list
         tasks.addTask( task )
         // add to storage
@@ -34,7 +30,7 @@ export const run = ( ui ) => {
         tasksview.clearTaskInput()
 
     } )
-    // delete task
+
     ui.deleteTask( e => {
         if ( e.target.matches( '.delete-item *' ) ) {
             const [, id] = e.target.parentElement.href.split( '#' )
@@ -47,13 +43,11 @@ export const run = ( ui ) => {
         }
     } )
 
-    // filter tasks
     ui.filterTasks( () => {
         const filterString = ui.getFilterString();
         tasksview.filterTasks( filterString )
     } )
 
-    //clear tasks
     ui.clearTasks( () => {
         // clear the tasks from the model
         tasks.tasks = []
