@@ -9,8 +9,6 @@ export const renderTasks = tasks => {
                 </a>
                 </li>`).join( ' ' )
     UIStrings.taskList.insertAdjacentHTML( 'afterbegin', html )
-
-
 }
 
 export const clearTasks = () => {

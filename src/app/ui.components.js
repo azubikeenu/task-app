@@ -6,6 +6,7 @@ export default class UI {
         this.clearBtn = document.querySelector( '.clear-tasks ' );
         this.filter = document.querySelector( '#filter' );
         this.taskInput = document.querySelector( '#task' );
+
     }
     getTaskInput () {
         return this.taskInput.value;
