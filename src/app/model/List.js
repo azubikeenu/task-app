@@ -25,5 +25,3 @@ class List {
 }
 
 export const myList = new List();
-// const myList = new List();
-// export { myList }
