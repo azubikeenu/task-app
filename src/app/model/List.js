@@ -24,5 +24,6 @@ class List {
 
 }
 
-const myList = new List();
-export { myList }
+export const myList = new List();
+// const myList = new List();
+// export { myList }
